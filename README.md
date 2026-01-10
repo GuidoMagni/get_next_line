@@ -1,1 +1,1 @@
-# get_next_line
+_getnextline gumagni_
