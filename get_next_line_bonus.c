@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gumagni <gumagni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 18:17:37 by gumagni           #+#    #+#             */
-/*   Updated: 2026/01/26 14:25:17 by gumagni          ###   ########.fr       */
+/*   Updated: 2026/01/26 14:28:55 by gumagni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,21 @@ static void	extract_line(char *line, char **rest)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*rest;
+	static char	*rest[1024];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (rest)
-		line = ft_strdup(rest);
+	if (rest[fd])
+		line = ft_strdup(rest[fd]);
 	else
 		line = ft_strdup("");
-	if (rest)
-		free(rest);
-	rest = NULL;
+	if (rest[fd])
+		free(rest[fd]);
+	rest[fd] = NULL;
 	line = read_until_newline(fd, line);
 	if (!line || !*line)
 		return (free(line), NULL);
-	extract_line(line, &rest);
+	extract_line(line, &rest[fd]);
 	return (line);
 }
 
@@ -82,5 +82,4 @@ char	*get_next_line(int fd)
 	printf("%s\n", get_next_line(fd));
 	printf("%s\n", get_next_line(fd));
 	close(fd);
-}
-*/
+}*/
