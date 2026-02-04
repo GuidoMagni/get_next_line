@@ -6,11 +6,11 @@
 /*   By: gumagni <gumagni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 18:17:37 by gumagni           #+#    #+#             */
-/*   Updated: 2026/01/26 14:28:55 by gumagni          ###   ########.fr       */
+/*   Updated: 2026/02/04 18:14:26 by gumagni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*read_until_newline(int fd, char *line)
 {
@@ -72,14 +72,38 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-/*int main(void)
+/*int	main(void)
 {
-	int	fd;
+	int		fd1;
+	int		fd2;
+	char	*line;
+	int		done1;
+	int		done2;
 
-	fd = open("ciao.txt", O_RDONLY);
-	printf("%d\n", fd);
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	close(fd);
-}*/
+	fd1 = open("ciao.txt", O_RDONLY);
+	fd2 = open("ciao1.txt", O_RDONLY);
+	if (fd1 < 0 || fd2 < 0)
+	{
+		perror("open");
+		return (1);
+	}
+
+	done1 = 0;
+	done2 = 0;
+	while ((line = get_next_line(fd1)))
+	{
+		printf("[fd1] %s", line);
+		free(line);
+	}
+	printf("\n");
+	while ((line = get_next_line(fd2)))
+	{
+		printf("[fd2] %s", line);
+		free(line);
+	}
+	printf("\n");
+	close(fd1);
+	close(fd2);
+	return (0);
+}
+*/
