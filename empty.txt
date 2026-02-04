@@ -1,5 +1,0 @@
-Line with content
-
-Another line
-
-Last line

@@ -1,5 +1,0 @@
-Hello, this is line 1
-This is line 2
-Line 3 here
-And line 4
-Final line 5

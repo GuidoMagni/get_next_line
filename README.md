@@ -60,7 +60,7 @@ int main(void)
 The `BUFFER_SIZE` can be defined at compile time:
 
 ```bash
-gcc -D BUFFER_SIZE=32 get_next_line.c get_next_line_utils.c
+gcc -D BUFFER_SIZE=32 -o program main.c get_next_line.c get_next_line_utils.c
 ```
 
 ### Testing
