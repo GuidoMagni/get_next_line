@@ -6,7 +6,7 @@
 /*   By: gumagni <gumagni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 18:17:37 by gumagni           #+#    #+#             */
-/*   Updated: 2026/01/26 14:25:17 by gumagni          ###   ########.fr       */
+/*   Updated: 2026/02/08 15:35:51 by gumagni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,18 @@ char	*get_next_line(int fd)
 /*int main(void)
 {
 	int	fd;
+	char *line;
 
 	fd = open("ciao.txt", O_RDONLY);
-	printf("%d\n", fd);
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
+	if (fd < 0)
+		printf("error");
+	while ((line = get_next_line(fd)))
+	{
+		printf("%s", line);
+		free(line);
+	}
+	printf("\n");
 	close(fd);
+	return(0);
 }
 */
